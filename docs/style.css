@@ -124,22 +124,42 @@ button:hover {
 }
 
 /* Responsividade dos Personagens */
-@media (max-width: 1300px) {
-  #placa { display: none; }
-}
-
-@media (max-width: 900px) {
-  #elfo {
-    width: 180px;
-    right: -20px;
-    opacity: 0.8;
-  }
-}
+/* --- AJUSTE RESPONSIVO PARA MOBILE (CELULARES) --- */
+/* Substitua o antigo bloco @media (max-width: 800px) por este aqui: */
 
 @media (max-width: 800px) {
+  
+  /* 1. Arruma o corpo da página para alinhar tudo em coluna */
+  body {
+    display: flex;
+    flex-direction: column; /* Um embaixo do outro */
+    align-items: center;    /* Centraliza tudo */
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* 2. O Formulário fica em cima */
+  .container {
+    order: 1;               /* Ordem 1: Primeiro item */
+    margin: 40px auto 10px auto;
+    width: 90%;
+    position: relative;
+    left: auto; top: auto;
+  }
+
+  /* 3. O Papai Noel fica logo embaixo, sem buraco */
   #santa {
-    width: 200px;
-    right: -50px;
+    order: 2;               /* Ordem 2: Segundo item */
+    position: static;       /* Tira o "fixed" (solta ele do fundo da tela) */
+    width: 220px;           /* Tamanho bom para celular */
+    margin-top: -30px;      /* Puxa ele pra cima pra colar no formulário */
+    margin-bottom: 20px;    /* Espaço no final da página */
+    right: auto;
+  }
+
+  /* 4. Garante que a placa suma */
+  #placa {
+    display: none;
   }
 }
 
