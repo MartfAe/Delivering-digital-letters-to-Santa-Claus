@@ -2,67 +2,35 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Correio do Papai Noel 🎅</title>
+  <link rel="shortcut icon" href="Image/icone.ico" type="image/x-icon">
+  <title>Bem-vindo ao Polo Norte 🎄</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="fundo-capa">
 
-<!-- Música -->
-<audio id="musicaNatal" autoplay loop>
+<audio id="musicaNatal" loop>
   <source src="Music/natal.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Papai Noel -->
-<img id="santa" src="Image/santa.png">
-
-<!-- Neve -->
 <script src="script.js"></script>
-<!--Placa-->
-<img id="placa" src="Image/placa.png">
 
-<div class="container">
-  <h2>🎄 Correio do Papai Noel 🎄</h2>
+<img id="intro-image" src="Image/elfo2.png"> 
 
- <form action="https://formsubmit.co/476f6cb9c450923f41990b73889bc21e" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://martfae.github.io/Delivering-Digital-Letters-to-Santa-Claus/obrigado.html">
-    <label>Nome:</label>
-    <input type="text" name="nome" required placeholder="Ex: Papai Noel">
+<div class="container intro-box">
+  <h1 class="titulo-magico">O Natal está chegando! ✨</h1>
+  
+  <div class="texto-historia">
+    <p>Olá! Você chegou ao <strong>Correio Oficial do Polo Norte.</strong></p>
+    <p>O Papai Noel e seus elfos estão trabalhando muito e esperam ansiosos pela sua mensagem.</p>
+    <p>Você foi uma boa criança este ano?</p>
+  </div>
 
-    <div class="form-row">
-      <div class="col-larga">
-        <label>Rua e Número:</label>
-        <input type="text" name="rua" required placeholder="Avenida Polo Norte, 123">
-      </div>
-      
-      <div class="col-curta">
-        <label>CEP:</label>
-        <input type="text" name="cep" placeholder="00000-000">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col-larga"> <label>Complemento:</label>
-        <input type="text" name="complemento" placeholder="Apto 101">
-      </div>
-      
-      <div class="col-media"> <label>Cidade:</label>
-        <input type="text" name="cidade" required>
-      </div>
-
-      <div class="col-curta"> <label>UF:</label>
-        <input type="text" name="estado" placeholder="PN" maxlength="2">
-      </div>
-    </div>
-
-    <label>Carta para o Papai Noel:</label>
-    <textarea name="carta" rows="5" required></textarea>
-
-    <button type="submit">Enviar Cartinha</button>
-</form>
+  <a href="forms.html" class="btn-start" onclick="document.getElementById('musicaNatal').play()">
+    💌 Vamos escrever sua cartinha?
+  </a>
 </div>
 
 </body>

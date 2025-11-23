@@ -1,12 +1,16 @@
+/* =========================================
+   1. CONFIGURAÇÕES GERAIS (CORPO)
+   ========================================= */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito', sans-serif;
-  background: url('Image/fundo.png') no-repeat center center fixed;
   background-size: cover;
 }
 
-/* --- TÍTULOS E TEXTOS --- */
+/* =========================================
+   2. TIPOGRAFIA (TÍTULOS E TEXTOS)
+   ========================================= */
 h2 {
   font-family: 'Mountains of Christmas', cursive;
   font-weight: 700; 
@@ -26,7 +30,9 @@ label {
   font-weight: 700;
 }
 
-/* --- INPUTS E BOTÕES --- */
+/* =========================================
+   3. INPUTS, TEXTAREAS E BOTÕES GERAIS
+   ========================================= */
 input, textarea {
   width: 100%;
   font-family: 'Nunito', sans-serif;
@@ -36,6 +42,7 @@ input, textarea {
   border: 1px solid #ccc;
   font-size: 16px;
   font-family: inherit;
+  box-sizing: border-box; 
 }
 
 button {
@@ -52,10 +59,12 @@ button {
 }
 
 button:hover {
-  background: #b92b30; /* Um efeitinho extra para quando passar o mouse */
+  background: #b92b30;
 }
 
-/* --- ESTRUTURA DO FORMULÁRIO (CAIXA PRINCIPAL) --- */
+/* =========================================
+   4. ESTRUTURA DO FORMULÁRIO
+   ========================================= */
 .container {
   max-width: 700px;
   width: 95%;
@@ -76,25 +85,16 @@ button:hover {
   align-items: flex-end;
 }
 
-/* --- COLUNAS --- */
+/* Colunas do Formulário */
 .col-larga { flex: 4; }
 .col-media { flex: 3; }
 .col-curta { flex: 2; min-width: 100px; }
 
-/* Ajuste para Celular */
-@media (max-width: 600px) {
-  .form-row {
-    flex-direction: column;
-    gap: 0;
-  }
-  label {
-    margin-top: 15px;
-  }
-}
 
-/* --- PERSONAGENS (PAPAI NOEL, PLACA, ELFO) --- */
-
-/* Papai Noel parado */
+/* =========================================
+   5. PERSONAGENS (DESKTOP PADRÃO)
+   ========================================= */
+/* Papai Noel (Fixo no canto direito) */
 #santa {
   position: fixed;
   bottom: 5px;
@@ -103,11 +103,11 @@ button:hover {
   z-index: 3;
 }
 
-/* Placa na Esquerda */
+/* Placa (Fixa no canto esquerdo) */
 #placa {
   position: fixed;
   bottom: 0;
-  left: -10px; /* CORRIGIDO: Adicionado 'px' */
+  left: -10px;
   width: 410px;
   z-index: 3;
   pointer-events: none;
@@ -122,72 +122,109 @@ button:hover {
   z-index: 3;
   pointer-events: none;
 }
-
-/* Responsividade dos Personagens */
-/* --- AJUSTE RESPONSIVO PARA MOBILE (CELULARES) --- */
-/* Substitua o antigo bloco @media (max-width: 800px) por este aqui: */
-
-@media (max-width: 800px) {
-  
-  /* 1. Arruma o corpo da página para alinhar tudo em coluna */
-  body {
-    display: flex;
-    flex-direction: column; /* Um embaixo do outro */
-    align-items: center;    /* Centraliza tudo */
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* 2. O Formulário fica em cima */
-  .container {
-    order: 1;               /* Ordem 1: Primeiro item */
-    margin: 40px auto 10px auto;
-    width: 90%;
-    position: relative;
-    left: auto; top: auto;
-  }
-
-  /* 3. O Papai Noel fica logo embaixo, sem buraco */
-  #santa {
-    order: 2;               /* Ordem 2: Segundo item */
-    position: static;       /* Tira o "fixed" (solta ele do fundo da tela) */
-    width: 220px;           /* Tamanho bom para celular */
-    margin-top: -30px;      /* Puxa ele pra cima pra colar no formulário */
-    margin-bottom: 20px;    /* Espaço no final da página */
-    right: auto;
-  }
-
-  /* 4. Garante que a placa suma */
-  #placa {
-    display: none;
-  }
-}
-
-/* --- NEVE --- */
-.snowflake {
+#elfo2 {
   position: fixed;
-  top: -10px;
-  font-size: 30px;
-  color: white;
-  animation: cair linear infinite;
+  bottom: 0;
+  right: 10px;
+  width: 450px;
   z-index: 1;
+  pointer-events: none;
 }
 
-@keyframes cair {
-  to {
-    transform: translateY(110vh);
-    opacity: 0;
-  }
+
+/* =========================================
+   6. PÁGINA DE INTRODUÇÃO (ANIMADA)
+   ========================================= */
+
+/* Caixa da Intro (aparece subindo) */
+.intro-box {
+  text-align: center;
+  max-width: 600px;
+  margin: 10vh auto; /* Centraliza verticalmente */
+  background: rgba(255, 255, 255, 0.85);
+  padding: 50px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 2;
+  animation: surgirSuave 1.5s ease-out;
 }
 
-/* --- PÁGINA DE CONFIRMAÇÃO (Limpei as duplicatas aqui) --- */
+/* Título Mágico Gigante */
+.titulo-magico {
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 50px;
+  color: #A61C24;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  margin-top: 0;
+}
 
+/* Texto da história */
+.texto-historia p {
+  font-size: 22px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Imagem decorativa da Intro (Flutuando) - NOVO TAMANHO MAIOR */
+#intro-image {
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  width: 450px;
+  z-index: 5;
+}
+
+/* Botão Pulsante "Vamos Escrever" */
+.btn-start {
+  display: inline-block;
+  background-color: #A61C24;
+  color: white;
+  padding: 20px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  margin-top: 30px;
+  box-shadow: 0 5px 15px rgba(166, 28, 36, 0.4);
+  transition: transform 0.3s;
+  font-family: 'Nunito', sans-serif;
+  animation: pulsarBotao 2s infinite;
+}
+
+.btn-start:hover {
+  background-color: #c92530;
+  transform: scale(1.05);
+}
+
+/* --- ANIMAÇÕES (KEYFRAMES) --- */
+@keyframes surgirSuave {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flutuar {
+  from { transform: translateY(0); }
+  to { transform: translateY(-20px); }
+}
+
+@keyframes pulsarBotao {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(166, 28, 36, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(166, 28, 36, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(166, 28, 36, 0); }
+}
+
+
+/* =========================================
+   7. PÁGINA DE CONFIRMAÇÃO (OBRIGADO)
+   ========================================= */
 .confirmacao-box {
   text-align: center;
   max-width: 600px;
-  /* Usei o margin do container principal para manter consistência */
   margin: 60px auto; 
-  background: rgba(255, 255, 255, 0.9); /* Fundo um pouco mais branco para leitura */
+  background: rgba(255, 255, 255, 0.9);
   padding: 40px;
 }
 
@@ -208,18 +245,165 @@ button:hover {
   border-radius: 8px;
   font-weight: bold;
   transition: background 0.3s;
+  font-family: 'Nunito', sans-serif;
 }
 
 .btn-voltar:hover {
   background-color: #8C1218;
 }
 
-/* Fundo Especial da Confirmação */
-body.fundoElfo {
+
+/* =========================================
+   8. GERENCIAMENTO DE FUNDOS (BACKGROUNDS)
+   ========================================= */
+
+/* --- A. CAPA / INTRODUÇÃO (index.html) --- */
+body.fundo-capa {
   background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-  url('Image/fundo2.png');
+  url('Image/fundoCarta.png'); /* Usa o fundo da vila com camada branca */
+  
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+/* --- B. FORMULÁRIO (formulario.html) --- */
+body.fundo-correio {
+  background-image: url('Image/fundo.png'); 
+  
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* --- C. CONFIRMAÇÃO (obrigado.html) --- */
+body.fundoElfo {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+  url('Image/fundo2.png'); /* Fundo do Elfo */
+  
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+
+/* =========================================
+   9. EFEITO DE NEVE
+   ========================================= */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  font-size: 30px;
+  color: white;
+  animation: cair linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes cair {
+  to { transform: translateY(110vh); opacity: 0; }
+}
+
+/* --- ESTILO 2: CARTINHAS CAINDO (Para a Capa) --- */
+.envelope-caindo {
+  position: fixed;
+  top: -50px;
+  z-index: 1;
+  pointer-events: none;
+  
+  /* Imagem da cartinha */
+  background-image: url('Image/carta.png'); /* Verifique se o nome está certo */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  opacity: 0.8;
+  animation: cairCartas linear infinite;
+}
+
+@keyframes cairCartas {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* =========================================
+   10. RESPONSIVIDADE (CELULARES)
+   ========================================= */
+
+/* Ajustes intermediários */
+@media (max-width: 1300px) {
+  #placa { display: none; }
+}
+
+/* AJUSTE PARA CELULARES */
+@media (max-width: 900px) {
+  
+  /* 1. Layout Vertical */
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* 2. Containers (Form e Intro) */
+  .container, .intro-box {
+    margin: 40px auto 20px auto;
+    width: 90%;
+    order: 1;
+    position: relative;
+    left: auto; top: auto;
+  }
+  
+  /* Ajustes da Intro */
+  .intro-box { margin-top: 240px; } /* Espaço para o Elfo grande */
+  .titulo-magico { font-size: 36px; }
+  .texto-historia p { font-size: 18px; }
+  .btn-start { font-size: 20px; padding: 15px 30px; }
+
+  /* 3. Papai Noel no celular */
+  #santa {
+    position: relative;
+    width: 200px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    bottom: auto; right: auto; left: auto;
+    order: 2;
+    display: block;
+  }
+  
+  /* 4. Imagem da Intro (Elfo Grande) no celular */
+  #intro-image {
+    width: 220px;
+    top: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    animation: none;
+    position: absolute;
+  }
+
+  /* 5. Elfo da Obrigado */
+  #elfo {
+    width: 150px;
+    right: -10px;
+    bottom: 0;
+    position: fixed;
+    opacity: 0.9;
+  }
+  
+  /* 6. Colunas do Form */
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  label {
+    margin-top: 15px;
+  }
+  
+  #placa { display: none !important; }
 }
